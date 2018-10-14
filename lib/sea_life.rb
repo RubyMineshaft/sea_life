@@ -1,5 +1,5 @@
-require "sea_life/version"
+require "open-uri"
+require "nokogiri"
 
-module SeaLife
-  # Your code goes here...
-end
+require "sea_life/version"
+require "sea_life/cli"
