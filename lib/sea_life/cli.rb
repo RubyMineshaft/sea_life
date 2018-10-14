@@ -14,8 +14,8 @@ DOC
 
   def list_categories
     @categories = SeaLife::Category.all
-    @categories.each_with_index(1) do |category, i|
-      puts "#{i}. #{category.name}"
+    @categories.each_with_index do |category, i|
+      puts "#{i + 1}. #{category.name}"
     end
   end
 
