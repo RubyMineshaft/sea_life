@@ -3,3 +3,4 @@ require "nokogiri"
 
 require_relative "./sea_life/version"
 require_relative "./sea_life/cli"
+require_relative "./sea_life/categories"
