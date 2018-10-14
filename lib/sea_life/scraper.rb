@@ -1,0 +1,4 @@
+class SeaLife::Scraper
+
+
+end
