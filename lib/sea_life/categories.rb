@@ -1,4 +1,5 @@
 class SeaLife::Categories
+  attr_accessor :name, :url
 
   @@all = []
 
