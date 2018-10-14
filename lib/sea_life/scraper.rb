@@ -2,7 +2,9 @@ class SeaLife::Scraper
 
   BASE_URL = "https://oceana.org"
 
-  def self.scrape_categories
+
+
+  def self.scrape_categories #Scrapes oceana and returns array of categories
     categories = []
     doc = Nokogiri::HTML(open(BASE_URL + "/marine-life"))
     doc.css("article.animal-tile").each do |item|
