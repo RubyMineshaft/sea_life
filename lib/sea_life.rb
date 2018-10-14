@@ -1,5 +1,5 @@
 require "open-uri"
 require "nokogiri"
 
-require "sea_life/version"
-require "sea_life/cli"
+require_relative "./sea_life/version"
+require_relative "./sea_life/cli"
