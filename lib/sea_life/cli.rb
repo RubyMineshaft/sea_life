@@ -15,14 +15,14 @@ DOC
 
   def list_categories
     puts <<-DOC
-    1. Cephalopods, crustaceans, & other shellfish
-    2. Corals and other invertebrates
-    3. Marine mammals
-    4. Marine science and ecosystems
-    5. ocean fishes
-    6. sea turtles & reptiles
-    7. seabirds
-    8. sharks & rays
+1. Cephalopods, crustaceans, & other shellfish
+2. Corals and other invertebrates
+3. Marine mammals
+4. Marine science and ecosystems
+5. Ocean fishes
+6. Sea turtles & reptiles
+7. Seabirds
+8. Sharks & rays
     DOC
   end
 
