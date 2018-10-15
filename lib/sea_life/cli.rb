@@ -59,15 +59,15 @@ DOC
 
   def show_animal(animal)
     puts ""
-    puts "------------------------------------"
+    puts "--------------------------------------------------------------"
     puts "#{animal.name} (#{animal.scientific_name})"
-    puts "------------------------------------"
     puts ""
     puts "Distribution:  #{animal.distribution}"
     puts "Ecosystem/Habitat: #{animal.habitat}"
     puts "Feeding Habits: #{animal.habits}"
     puts "Conservation Status: #{animal.status}"
     puts "Taxonomy: #{animal.taxonomy}"
+    puts "--------------------------------------------------------------"
     puts ""
     puts "#{animal.short_desc}"
     puts ""
@@ -79,6 +79,7 @@ DOC
   def animal_menu(animal)
     input = gets.strip.downcase
     if input == "more"
+      puts ""
       puts "#{animal.longer_desc}"
       puts ""
       puts "Please enter BACK, MENU, or EXIT."
