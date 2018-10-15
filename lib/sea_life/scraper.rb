@@ -26,10 +26,32 @@ class SeaLife::Scraper
   def self.scrape_animals_from_url(url)
     doc = Nokogiri::HTML(open(BASE_URL + url))
     animal_info = {}
-    binding.pry
     animal_info[:category] = doc.css("section.subpage-header div h2").text
     animal_info[:name] = doc.css("section.subpage-header div h1").text
     animal_info[:scientific_name] = doc.css("section.subpage-header div p").text
+    animal_info[:short_desc] = doc.css("div.animal-description-contain p").text
+    # j = 1
+    # p_size = doc.css("section.animal-secondary div.flex-item-2 p").size
+    # until j == p_size - 6 do
+    #
+    # end
+    animal_info[:longer_desc] = doc.css("section.animal-secondary div.flex-item-2 p").text
+    i = 0
+    while i < 5 do
+      info_cat = doc.css("div.animal-details-side h2")[i].text.strip.downcase
+      info = doc.css("div.animal-details-side p")[i].text.strip
+      case info_cat
+      when "ecosystem/habitat"
+        animal_info[:habitat] = info
+      when "feeding habits"
+        animal_info[:habits] = info
+      when "conservation status"
+        animal_info[:status] = info
+      else
+        animal_info[info_cat.to_sym] = info
+      end
+      i += 1
+    end
   end
 
 end
