@@ -13,6 +13,8 @@ DOC
 
   end
 
+
+
   def list_categories
     puts ""
     puts "Please choose a category to learn about:"
@@ -39,17 +41,54 @@ DOC
     puts ""
     make_animals_from_category(category) if category.animals.size == 0
     puts "Please select the animal you'd like to learn about:"
+    animals = []
     category.animals.each_with_index do |animal, i|
       puts "#{i + 1}. #{animal.name}"
+      animals << animal
     end
     puts ""
     puts "Please enter the number of your selection:"
     input = gets.strip
+    show_animal(animals[input.to_i - 1])
 
   end
 
   def make_animals_from_category(category)
     SeaLife::Scraper.scrape_animals(category.url)
   end
+
+  def show_animal(animal)
+    puts ""
+    puts "------------------------------------"
+    puts "#{animal.name} (#{animal.scientific_name})"
+    puts "------------------------------------"
+    puts ""
+    puts "Distribution:  #{animal.distribution}"
+    puts "Ecosystem/Habitat: #{animal.habitat}"
+    puts "Feeding Habits: #{animal.habits}"
+    puts "Conservation Status: #{animal.status}"
+    puts "Taxonomy: #{animal.taxonomy}"
+    puts ""
+    puts "#{animal.short_desc}"
+    puts ""
+    puts "Enter \"MORE\" to continue reading about #{animal.name}."
+    puts "You may also enter \"BACK\", \"MENU\", or \"EXIT\"."
+    input = gets.strip.downcase
+    if input == "more"
+      puts "#{animal.longer_desc}"
+    elsif input == "back"
+      list_animals(animal.category)
+    elsif input == "menu"
+      list_categories
+    elsif input == "exit"
+      goodbye
+    else
+      puts "invalid input."
+      puts "Enter \"MORE\" to continue reading about #{animal.name}."
+      puts "You may also enter \"BACK\", \"MENU\", or \"EXIT\"."
+    end
+
+  end
+
 
 end
