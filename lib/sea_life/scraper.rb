@@ -52,6 +52,7 @@ class SeaLife::Scraper
       end
       i += 1
     end
+    animal_info
   end
 
 end
