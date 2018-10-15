@@ -96,5 +96,8 @@ DOC
     end
   end
 
+  def goodbye
+    puts "Thank you for using SeaLife! Come back soon to learn more!"
+  end
 
 end
