@@ -21,11 +21,9 @@ class SeaLife::Scraper
       animal_info[:name] = animal.css("div.copy h1").text
       animal_info[:url]
       Animal.new(animal_info)
-
-
-      
     end
-end
+  end
+  
   # def self.scrape_animals(category_url)
   #   doc = Nokogiri::HTML(open(BASE_URL + category_url))
   #   doc.css("article").each do |animal|
