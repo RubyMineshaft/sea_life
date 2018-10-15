@@ -14,15 +14,22 @@ class SeaLife::Scraper
     categories
   end
 
-  def self.scrape_animals(category_url)
-    animals = []
-    doc = Nokogiri::HTML(open(BASE_URL + category_url))
-    doc.css("article").each do |animal|
-      info = {}
-      info[:url] = animal.css("div.overlay a").attribute("href").value
-      info[:name] = animal.css("div.copy h1").text
-    end
+  # def self.scrape_animals(category_url)
+  #   animals = []
+  #   doc = Nokogiri::HTML(open(BASE_URL + category_url))
+  #   doc.css("article").each do |animal|
+  #     info = {}
+  #     info[:url] = animal.css("div.overlay a").attribute("href").value
+  #     info[:name] = animal.css("div.copy h1").text
+  #   end
+  # end
+  def self.scrape_animals_from_url(url)
+    doc = Nokogiri::HTML(open(BASE_URL + url))
+    animal_info = {}
+    binding.pry
+    animal_info[:category] = doc.css("section.subpage-header div h2").text
+    animal_info[:name] = doc.css("section.subpage-header div h1").text
+    animal_info[:scientific_name] = doc.css("section.subpage-header div p").text
   end
-
 
 end
