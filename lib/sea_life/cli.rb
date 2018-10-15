@@ -73,9 +73,16 @@ DOC
     puts ""
     puts "Enter \"MORE\" to continue reading about #{animal.name}."
     puts "You may also enter \"BACK\", \"MENU\", or \"EXIT\"."
+    animal_menu(animal)
+  end
+
+  def animal_menu(animal)
     input = gets.strip.downcase
     if input == "more"
       puts "#{animal.longer_desc}"
+      puts ""
+      puts "Please enter BACK, MENU, or EXIT."
+      animal_menu(animal)
     elsif input == "back"
       list_animals(animal.category)
     elsif input == "menu"
@@ -83,11 +90,9 @@ DOC
     elsif input == "exit"
       goodbye
     else
-      puts "invalid input."
-      puts "Enter \"MORE\" to continue reading about #{animal.name}."
-      puts "You may also enter \"BACK\", \"MENU\", or \"EXIT\"."
+      puts "Invalid input. Please enter MORE, BACK, MENU, or EXIT."
+      animal_menu(animal)
     end
-
   end
 
 
