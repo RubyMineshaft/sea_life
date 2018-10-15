@@ -14,5 +14,17 @@ class SeaLife::Animal
     @category.animals << self
   end
 
+  def add_info(info)
+    info.each { |k, v| self.send("#{k}=", v) }
+  end
+
+  def self.all
+    @@all
+  end
+
+  def self.find_by_name(name)
+    self.all.detect { |animal| animal.name == name }
+  end
+
 
 end
