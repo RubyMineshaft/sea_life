@@ -39,7 +39,11 @@ class SeaLife::Scraper
     # animal_info[:name] = doc.css("section.subpage-header div h1").text
     animal_info[:scientific_name] = doc.css("section.subpage-header div p").text
     animal_info[:short_desc] = doc.css("div.animal-description-contain p").text
-    animal_info[:longer_desc] = doc.css("section.animal-secondary div.flex-item-2 p").text
+    animal_info[:longer_desc] = ""
+    doc.css("section.animal-secondary div.flex-item-2 p").each do |paragraph|
+      break if paragraph.text == "Additional Resources:"
+      animal_info[:longer_desc] += "\n\n #{paragraph.text}"
+    end
     i = 0
     while i < doc.css("div.animal-details-side h2").size - 1 do
       info_cat = doc.css("div.animal-details-side h2")[i].text.strip.downcase
