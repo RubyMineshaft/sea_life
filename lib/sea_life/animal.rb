@@ -1,6 +1,6 @@
 class SeaLife::Animal
-  attr_accessor :url, :name, :distribution, :habitat, :habits, :status, :taxonomy, :short_desc, :longer_desc, :scientific_name
-  attr_reader :category
+  attr_accessor :url, :category, :name, :distribution, :habitat, :habits, :status, :taxonomy, :short_desc, :longer_desc, :scientific_name
+
 
   @@all = []
 
@@ -9,9 +9,9 @@ class SeaLife::Animal
     @@all << self
   end
 
-  def category=(category_name)
-    @category = SeaLife::Category.find_by_name(category_name)
-    @category.animals << self
+  def category=(category)
+    # @category = SeaLife::Category.find_by_name(category_name)
+    category.animals << self
   end
 
   def add_info(info)
