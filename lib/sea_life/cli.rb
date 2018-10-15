@@ -9,6 +9,7 @@ class SeaLife::CLI
 Welcome to Sea Life!
 DOC
     make_categories
+    make_animals
     list_categories
   end
 
@@ -26,6 +27,12 @@ DOC
   def make_categories
     SeaLife::Scraper.scrape_categories.each do |category|
       SeaLife::Category.new(category)
+    end
+  end
+
+  def make_animals
+    SeaLife::Category.all.each do |category|
+      SeaLife::Scraper.scrape_animals(category.url)
     end
   end
 

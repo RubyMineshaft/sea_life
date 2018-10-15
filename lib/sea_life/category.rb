@@ -6,6 +6,7 @@ class SeaLife::Category
   def initialize(hash)
     hash.each { |k, v| self.send("#{k}=", v) }
     self.class.all << self
+    @animals = []
   end
 
   def self.all
