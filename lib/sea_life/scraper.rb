@@ -20,7 +20,7 @@ class SeaLife::Scraper
       animal_info = {}
       animal_info[:category] = category
       animal_info[:name] = animal.css("div.copy h1").text
-      animal_info[:url]
+      animal_info[:url] = animal.css("div.overlay a").attribute("href").value
       SeaLife::Animal.new(animal_info)
     end
   end
