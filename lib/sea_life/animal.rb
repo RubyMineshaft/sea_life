@@ -2,8 +2,11 @@ class SeaLife::Animal
   attr_accessor :name, :distribution, :habitat, :habits, :status, :taxonomy, :short_desc, :longer_desc, :scientific_name
   attr_reader :category
 
+  @@all = []
+
   def initialize(info)
     info.each { |k, v| self.send("#{k}=", v) }
+    @@all << self
   end
 
   def category=(category_name)
