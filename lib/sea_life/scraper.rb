@@ -35,7 +35,7 @@ class SeaLife::Scraper
   def self.scrape_animal_info(animal)
     doc = Nokogiri::HTML(open(BASE_URL + animal.url))
     animal_info = {}
-    animal_info[:category] = doc.css("section.subpage-header div h2").text
+    # animal_info[:category] = doc.css("section.subpage-header div h2").text
     # animal_info[:name] = doc.css("section.subpage-header div h1").text
     animal_info[:scientific_name] = doc.css("section.subpage-header div p").text
     animal_info[:short_desc] = doc.css("div.animal-description-contain p").text

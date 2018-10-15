@@ -10,7 +10,7 @@ class SeaLife::Animal
   end
 
   def category=(category)
-    # @category = SeaLife::Category.find_by_name(category_name)
+    @category = category
     category.animals << self
   end
 
