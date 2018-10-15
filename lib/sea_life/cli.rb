@@ -24,6 +24,8 @@ DOC
       puts "#{i + 1}. #{category.name}"
     end
     puts ""
+    input = gets.strip
+    list_animals(@categories[input.to_i - 1])
   end
 
   def make_categories
@@ -40,10 +42,14 @@ DOC
     category.animals.each_with_index do |animal, i|
       puts "#{i + 1}. #{animal.name}"
     end
+    puts ""
+    puts "Please enter the number of your selection:"
+    input = gets.strip
+
   end
 
   def make_animals_from_category(category)
-    SeaLife::Scraper.scrape_animals(SeaLife::Category.find_by_name(category).url)
+    SeaLife::Scraper.scrape_animals(category.url)
   end
 
 end
