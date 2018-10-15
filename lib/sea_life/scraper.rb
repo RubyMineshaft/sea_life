@@ -23,7 +23,7 @@ class SeaLife::Scraper
       Animal.new(animal_info)
     end
   end
-  
+
   # def self.scrape_animals(category_url)
   #   doc = Nokogiri::HTML(open(BASE_URL + category_url))
   #   doc.css("article").each do |animal|
@@ -31,18 +31,13 @@ class SeaLife::Scraper
   #   end
   # end
 
-  def self.scrape_animals_from_url(url)
-    doc = Nokogiri::HTML(open(BASE_URL + url))
+  def self.scrape_animal_info(animal)
+    doc = Nokogiri::HTML(open(BASE_URL + animal.url))
     animal_info = {}
     animal_info[:category] = doc.css("section.subpage-header div h2").text
-    animal_info[:name] = doc.css("section.subpage-header div h1").text
+    # animal_info[:name] = doc.css("section.subpage-header div h1").text
     animal_info[:scientific_name] = doc.css("section.subpage-header div p").text
     animal_info[:short_desc] = doc.css("div.animal-description-contain p").text
-    # j = 1
-    # p_size = doc.css("section.animal-secondary div.flex-item-2 p").size
-    # until j == p_size - 6 do
-    #
-    # end
     animal_info[:longer_desc] = doc.css("section.animal-secondary div.flex-item-2 p").text
     i = 0
     while i < doc.css("div.animal-details-side h2").size - 1 do
@@ -61,7 +56,7 @@ class SeaLife::Scraper
 
       i += 1
     end
-    animal_info
+    animal.add_info(animal_info)
   end
 
 end
