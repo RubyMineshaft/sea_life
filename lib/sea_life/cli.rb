@@ -37,21 +37,25 @@ DOC
   end
 
   def list_animals(category)
-    puts "Loading animals..."
-    puts ""
-    make_animals_from_category(category) if category.animals.size == 0
-    puts "Please select the animal you'd like to learn about:"
-    animals = []
-    category.animals.each_with_index do |animal, i|
-      puts "#{i + 1}. #{animal.name}"
-      animals << animal
-    end
-    puts ""
-    puts "Please enter the number of your selection:"
-    input = gets.strip
-    show_animal(animals[input.to_i - 1])
-
   end
+
+
+  # def list_animals(category)
+  #   puts "Loading animals..."
+  #   puts ""
+  #   make_animals_from_category(category) if category.animals.size == 0
+  #   puts "Please select the animal you'd like to learn about:"
+  #   animals = []
+  #   category.animals.each_with_index do |animal, i|
+  #     puts "#{i + 1}. #{animal.name}"
+  #     animals << animal
+  #   end
+  #   puts ""
+  #   puts "Please enter the number of your selection:"
+  #   input = gets.strip
+  #   show_animal(animals[input.to_i - 1])
+  #
+  # end
 
   def make_animals_from_category(category)
     SeaLife::Scraper.scrape_animals(category.url)
