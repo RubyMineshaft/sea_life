@@ -1,6 +1,6 @@
 # SeaLife
 
-SeaLife is a simple CLI Gem that scrapes information from a website and provides information about sea creatures.
+SeaLife is a simple CLI Gem that scrapes information from Oceana's Marine Life Encyclopedia and provides information about sea creatures.
 
 ## Installation
 
@@ -10,11 +10,11 @@ Gem can be installed by:
 
 ## Usage
 
-Run the CLI by typing: 
+Run the CLI by typing:
 
     $ sea_life
-    
-After the CLI has loaded you will be presented with a list of categories.  Enter the number of the category you'd like to see and press enter.  The application will present you with a list of animals that belong to that category.  You can then choose one of these animals by entering the number of your selection. 
+
+After the CLI has loaded you will be presented with a list of categories.  Enter the number of the category you'd like to see and press enter.  The application will present you with a list of animals that belong to that category.  You can then choose one of these animals by entering the number of your selection.
 
 ## Development
 
