@@ -112,7 +112,7 @@ class SeaLife::CLI
 
     input = gets.strip
 
-    if input.to_i > 0
+    if input.to_i > 0 && input.to_i <= categories.size
       list_animals(categories[input.to_i - 1])
     elsif input.downcase == "exit"
       goodbye
@@ -128,7 +128,7 @@ class SeaLife::CLI
 
     input = gets.strip
 
-    if input.to_i > 0
+    if input.to_i > 0 && input.to_i <= animals.size
       show_animal(animals[input.to_i - 1])
     elsif input.downcase == "back"
       list_categories
