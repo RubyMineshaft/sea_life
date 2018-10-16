@@ -28,7 +28,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/mattet
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT License](https://github.com/mattetress/sea_life/blob/master/LICENSE.txt).
 
 ## Code of Conduct
 
