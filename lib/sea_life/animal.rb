@@ -4,7 +4,7 @@ class SeaLife::Animal
   @@all = []
 
   def initialize(info)
-    info.each { |k, v| self.send("#{k}=", v) }
+    add_info(info)
     @@all << self
   end
 
