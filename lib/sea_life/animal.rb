@@ -1,5 +1,6 @@
 class SeaLife::Animal
-  attr_accessor :url, :category, :name, :distribution, :habitat, :habits, :status, :taxonomy, :short_desc, :longer_desc, :scientific_name
+  attr_accessor :url, :name, :distribution, :habitat, :habits, :status, :taxonomy, :short_desc, :longer_desc, :scientific_name
+  attr_reader :category
   @@all = []
 
   def initialize(info)
