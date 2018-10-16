@@ -1,26 +1,20 @@
 # SeaLife
 
-SeaLife is a simple command line interface gem that scrapes information from a website and provides information about sea creatures.
+SeaLife is a simple CLI Gem that scrapes information from a website and provides information about sea creatures.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'sea_life'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Gem can be installed by:
 
     $ gem install sea_life
 
 ## Usage
 
-Usage information will be provided later.
+Run the CLI by typing: 
+
+    $ sea_life
+    
+After the CLI has loaded you will be presented with a list of categories.  Enter the number of the category you'd like to see and press enter.  The application will present you with a list of animals that belong to that category.  You can then choose one of these animals by entering the number of your selection. 
 
 ## Development
 
