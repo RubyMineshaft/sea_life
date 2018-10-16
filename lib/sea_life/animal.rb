@@ -1,7 +1,5 @@
 class SeaLife::Animal
   attr_accessor :url, :category, :name, :distribution, :habitat, :habits, :status, :taxonomy, :short_desc, :longer_desc, :scientific_name
-
-
   @@all = []
 
   def initialize(info)
@@ -25,6 +23,4 @@ class SeaLife::Animal
   def self.find_by_name(name)
     self.all.detect { |animal| animal.name == name }
   end
-
-
 end
