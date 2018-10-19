@@ -47,15 +47,12 @@ class SeaLife::CLI
 
     puts "Please select the animal you'd like to learn about:"
 
-    animals = []
     category.animals.each_with_index do |animal, i|
       puts "#{i + 1}. #{animal.name}"
-      animals << animal
     end
-
     puts ""
 
-    category_menu(animals)
+    category_menu(category.animals)
   end
 
 
