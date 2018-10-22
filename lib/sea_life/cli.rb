@@ -105,12 +105,14 @@ class SeaLife::CLI
 
   def main_menu(categories)
     puts "Please enter the number of a category:"
-    puts "You may also enter \"EXIT\"."
+    puts "You may also enter \"SEARCH\" or \"EXIT\"."
 
     input = gets.strip
 
     if input.to_i > 0 && input.to_i <= categories.size
       list_animals(categories[input.to_i - 1])
+    elsif input.downcase == "search"
+      search_by_name
     elsif input.downcase == "exit"
       goodbye
     else
@@ -121,7 +123,7 @@ class SeaLife::CLI
 
   def category_menu(animals)
     puts "Please enter the number of your selection."
-    puts "You may also enter BACK or EXIT"
+    puts "You may also enter SEARCH, BACK or EXIT"
 
     input = gets.strip
 
@@ -129,11 +131,41 @@ class SeaLife::CLI
       show_animal(animals[input.to_i - 1])
     elsif input.downcase == "back"
       list_categories
+    elsif input.downcase == "search"
+      search_by_name
     elsif input.downcase == "exit"
       goodbye
     else
       puts "Invalid input."
       category_menu(animals)
+    end
+  end
+
+  def search_by_name
+    puts "Please type the name of the animal you wish to search for:"
+
+    name = gets.strip.split.collect do |part|
+      part.capitalize
+    end.join(" ")
+
+    puts ""
+    puts "One moment please. Searching for \"#{name}\"."
+    build_all
+    if SeaLife::Animal.find_by_name(name)
+      show_animal(SeaLife::Animal.find_by_name(name))
+    else
+      puts ""
+      puts ""
+      puts "Sorry, there was no match for \"#{name}\"."
+      puts "Returning to Main Menu."
+      sleep(3)
+      list_categories
+    end
+  end
+
+  def build_all
+    SeaLife::Category.all.each do |category|
+      make_animals_from_category(category) if category.animals.size == 0
     end
   end
 

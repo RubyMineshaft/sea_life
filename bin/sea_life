@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 require "bundler/setup"
-require "sea_life"
+require_relative "../lib/sea_life.rb"
 
 SeaLife::CLI.new.call

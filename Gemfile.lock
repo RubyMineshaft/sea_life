@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sea_life (0.1.2)
+    sea_life (0.1.4)
       nokogiri (~> 1.8, >= 1.8.0)
 
 GEM
@@ -28,4 +28,4 @@ DEPENDENCIES
   sea_life!
 
 BUNDLED WITH
-   1.16.5
+   1.16.6

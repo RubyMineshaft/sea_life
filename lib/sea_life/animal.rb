@@ -1,4 +1,5 @@
 class SeaLife::Animal
+  extend SeaLife::Findable
   attr_accessor :url, :name, :distribution, :habitat, :habits, :status, :taxonomy, :short_desc, :longer_desc, :scientific_name
   attr_reader :category
   @@all = []
@@ -21,7 +22,4 @@ class SeaLife::Animal
     @@all
   end
 
-  def self.find_by_name(name)
-    self.all.detect { |animal| animal.name == name }
-  end
 end
